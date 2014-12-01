@@ -1,0 +1,87 @@
+
+# base scenario for simpsons story lines :)
+#
+# note - 'password' is given on all instances of people because it's a helper
+# in devise to do the right thing with password related fields. If it were
+# a normal field, we'd be able to clone it.
+
+#simpson_household:
+#  _model: "Company"
+#  name: "Simpson's House"
+
+#crusty:
+#  _model: "Person"
+
+marge:
+  _model: "Person"
+  email: "marge@simpsons.com"
+  first_name: "Marge"
+  last_name: "Simpson"
+  password: "p@ssw0rd"
+  state_mask: 1
+#  company_id: simpson_household.id
+
+homer:
+  _clone: marge
+  email: "homer@simpsons.com"
+  password: "p@ssw0rd"
+  first_name: "Homer"
+  roles_mask: 1 # owner
+
+bart:
+  _clone: marge
+  email: "bart@simpsons.com"
+  first_name: "Bart"
+  password: "p@ssw0rd"
+  state_mask: 3 # busy
+  roles_mask: 4 # dev
+
+lisa:
+  _clone: marge
+  email: "lisa@simpsons.com"
+  first_name: "Lisa"
+  state_mask: 0 # offline
+  password: "p@ssw0rd"
+
+maggie:
+  _clone: marge
+  email: "maggie@simpsons.com"
+  first_name: "Maggie"
+  state_mask: 2 # idle
+  password: "p@ssw0rd"
+
+#springfield_police:
+#  _model: "Company"
+#  name: "Springfield Police Department"
+
+clancy:
+  _model: "Person"
+  first_name: "Clancy"
+  last_name: "Wiggum"
+  email: "clancy@springfield.com"
+  password: "p@ssw0rd"
+  roles_mask: 2 # admin
+  #company_id: springfield_police.id
+
+eddie:
+  _model: "Person"
+  first_name: "Eddie"
+  last_name: "Police-Officer"
+  email: "eddie@springfield.com"
+  password: "p@ssw0rd"
+  #company_id: springfield_police.id
+
+lou:
+  _model: "Person"
+  first_name: "Lou"
+  last_name: "Police-Officer"
+  email: "lou@springfield.com"
+  password: "p@ssw0rd"
+  #company_id: springfield_police.id
+
+#apu_invitation:
+#  _model: "Invitation"
+#  email: "apu@kwik_e_mart.com"
+#  invited_by_id: homer.id
+#  sent_at: DateTime.now.to_s
+#  token: "xxxxxxxxxx"
